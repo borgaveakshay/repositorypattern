@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="base_url">https://api.flickr.com/services/rest/</string>
+    <string name="api_key">93ba2a13e201e37687788d9909f85b72</string>
+    <string name="secret_key">177e9b4d7f3766dc</string>
+</resources>
