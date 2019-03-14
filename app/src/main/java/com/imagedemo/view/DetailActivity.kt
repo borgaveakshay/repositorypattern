@@ -1,11 +1,12 @@
 package com.imagedemo.view
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.imagedemo.BuildConfig.API_KEY
 import com.imagedemo.R
 import com.imagedemo.viewmodels.DetailViewModel
 import com.imagedemo.viewmodels.viewmodelfactory.SearchViewModelFactory
@@ -44,7 +45,7 @@ class DetailActivity : BaseActivity() {
         mPhotoId?.let {
 
             showOrHideProgressbar()
-            mDetailViewModel.searchDetails(getString(R.string.api_key), it)?.observe(this, Observer { searchDetails ->
+            mDetailViewModel.searchDetails(API_KEY, it)?.observe(this, Observer { searchDetails ->
                 if (mDetailViewModel.mError) {
                     showOrHideProgressbar()
                     Toast.makeText(this, getString(R.string.error_string), Toast.LENGTH_LONG).show()

@@ -2,6 +2,7 @@ package com.imagedemo.di
 
 import android.content.Context
 import com.google.gson.GsonBuilder
+import com.imagedemo.BuildConfig.BASE_URL
 import com.imagedemo.R
 import com.imagedemo.api.FlikrApi
 import com.imagedemo.repository.FlikrRepo
@@ -37,7 +38,7 @@ class AppModule(private val context: Context) {
                 .create()
 
             Retrofit.Builder()
-                .baseUrl(context.getString(R.string.base_url))
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(get("okhttp_log_interceptor"))

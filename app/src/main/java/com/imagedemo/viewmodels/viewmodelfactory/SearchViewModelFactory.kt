@@ -1,7 +1,7 @@
 package com.imagedemo.viewmodels.viewmodelfactory
 
-import android.arch.lifecycle.ViewModel
-import android.arch.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.imagedemo.repository.FlikrRepo
 import com.imagedemo.viewmodels.BaseViewModel
 import com.imagedemo.viewmodels.DetailViewModel
