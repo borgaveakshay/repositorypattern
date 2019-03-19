@@ -51,7 +51,7 @@ class MainActivity : BaseActivity(), SearchAdapter.OnSearchItemClickListener {
         )
 
         mSearchBox = findViewById(R.id.searchTag)
-        mSubmit = findViewById(R.id.submit)
+        mSubmit = findViewById(R.id.submitBtn)
         mSubmit.setOnClickListener { makeSearchQuery() }
     }
 

@@ -3,11 +3,11 @@ package com.imagedemo.di
 import android.content.Context
 import com.google.gson.GsonBuilder
 import com.imagedemo.BuildConfig.BASE_URL
-import com.imagedemo.R
 import com.imagedemo.api.FlikrApi
 import com.imagedemo.repository.FlikrRepo
 import com.imagedemo.repository.FlikrRepoImpl
 import com.imagedemo.viewmodels.viewmodelfactory.SearchViewModelFactory
+import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module.module
@@ -29,7 +29,10 @@ class AppModule(private val context: Context) {
 
             val httpClient = OkHttpClient.Builder()
 
-            httpClient.addInterceptor(logging).build()
+            httpClient.addInterceptor(logging)
+                .certificatePinner(CertificatePinner.Builder().add("api.flickr.com",
+                    "sha256/W1g4DWtmfozlWmNKDfrO9MjwbNzPDr7EWk7RA5Yjraw=").build())
+                .build()
         }
 
         single("retrofit") {
