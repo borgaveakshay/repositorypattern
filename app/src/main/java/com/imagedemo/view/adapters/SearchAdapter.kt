@@ -8,14 +8,16 @@ import android.widget.TextView
 import com.imagedemo.R
 import com.imagedemo.models.PhotoItem
 
-class SearchAdapter(private val photos: List<PhotoItem>?) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
+class SearchAdapter(val onClickListener: (photoItem: PhotoItem, view: View) -> Unit) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
-    interface OnSearchItemClickListener {
+    private var photoList = mutableListOf<PhotoItem>()
 
-        fun onItemClicked(photoItem: PhotoItem)
+    fun setData(list: List<PhotoItem>) {
+        photoList.clear()
+        photoList.addAll(list)
+        notifyDataSetChanged()
     }
 
-    var onSearchItemClickListener: OnSearchItemClickListener? = null
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.row_search_item, viewGroup, false)
@@ -23,24 +25,16 @@ class SearchAdapter(private val photos: List<PhotoItem>?) : RecyclerView.Adapter
     }
 
     override fun getItemCount(): Int {
-        return photos?.size ?: 0
+        return photoList.size
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.title.text = photos?.get(position)?.title
-
-        viewHolder.itemView.setOnClickListener { photoItem ->
-
-            photos?.get(position)?.let {
-                onSearchItemClickListener?.onItemClicked(it)
-            }
-
-        }
+        val photoItem = photoList[position]
+        viewHolder.title.text = photoItem.title
+        viewHolder.itemView.setOnClickListener {onClickListener(photoItem, viewHolder.itemView)}
     }
 
     class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
-
         val title: TextView = view.findViewById(R.id.title)
-
     }
 }
