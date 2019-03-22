@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">flickr.com</domain>
+        <pin-set>
+            <pin digest="SHA-256">W1g4DWtmfozlWmNKDfrO9MjwbNzPDr7EWk7RA5Yjraw=</pin>
+            <pin digest="SHA-256">k2v657xBsOVe1PQRwOsHsw3bsGT2VzIqz5K+59sNQws=</pin>
+        </pin-set>
+        <trustkit-config enforcePinning="true" />
+    </domain-config>
+</network-security-config>

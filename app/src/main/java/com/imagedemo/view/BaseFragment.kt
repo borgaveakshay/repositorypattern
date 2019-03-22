@@ -1,18 +1,16 @@
 package com.imagedemo.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ProgressBar
-import com.imagedemo.R
+import androidx.fragment.app.Fragment
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseFragment: Fragment() {
 
     private var mProgressBar: ProgressBar? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mProgressBar = findViewById(R.id.progressBar)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initUI()
     }
 
@@ -28,5 +26,4 @@ abstract class BaseActivity : AppCompatActivity() {
             }
         }
     }
-
 }

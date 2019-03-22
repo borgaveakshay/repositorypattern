@@ -1,7 +1,7 @@
 package com.imagedemo.viewmodels
 
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.imagedemo.models.SearchDetails
 import com.imagedemo.repository.FlikrRepo
 import io.reactivex.android.schedulers.AndroidSchedulers

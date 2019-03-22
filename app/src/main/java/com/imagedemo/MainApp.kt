@@ -11,5 +11,6 @@ class MainApp : Application() {
         super.onCreate()
         val appModule = AppModule(this)
         startKoin(this, listOf(appModule.getAppModule()))
+
     }
 }
